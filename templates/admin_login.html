@@ -1,0 +1,45 @@
+<section class="staff-login-shell">
+  <div class="staff-login-layout">
+    <div class="staff-login-intro">
+      <div class="staff-login-mark">F<span>Z</span><small> / ADMIN</small></div>
+      <p class="staff-overline">FOOTZONE · BACK OFFICE</p>
+      <h1>Manage the game.<br><em>Behind the scenes.</em></h1>
+      <p>พื้นที่จัดการสินค้า คำสั่งซื้อ และการตรวจสอบชำระเงินสำหรับผู้ดูแลร้านเท่านั้น</p>
+      <div class="staff-login-feature"><span>01</span> จัดการสินค้าและสต็อก</div>
+      <div class="staff-login-feature"><span>02</span> ติดตามคำสั่งซื้อ</div>
+      <div class="staff-login-feature"><span>03</span> ตรวจสอบการชำระเงิน</div>
+    </div>
+    <div class="staff-login-panel">
+      <div class="staff-lock-icon" aria-hidden="true">&#9679;</div>
+      <p class="staff-overline">SECURE ACCESS</p>
+      <h2>เข้าสู่ระบบแอดมิน</h2>
+      <p class="staff-login-help">เข้าสู่ระบบด้วยบัญชีผู้ดูแล FOOTZONE</p>
+      <form method="post" action="/admin/login" class="staff-login-form">
+        <label for="staff-email">อีเมลแอดมิน</label>
+        <input id="staff-email" type="email" name="identity" placeholder="admin@footzone.com" autocomplete="username" maxlength="200" required autofocus>
+        <label for="staff-password">รหัสผ่าน</label>
+        <div class="staff-password-wrap">
+          <input id="staff-password" type="password" name="password" placeholder="กรอกรหัสผ่าน" autocomplete="current-password" required>
+          <button type="button" class="staff-show-password" id="staff-password-toggle" aria-label="แสดงรหัสผ่าน" aria-pressed="false">แสดง</button>
+        </div>
+        <button type="submit" class="btn staff-submit">เข้าสู่ระบบ <span aria-hidden="true">→</span></button>
+      </form>
+      <div class="staff-access-note"><span aria-hidden="true">&#9679;</span> เฉพาะผู้ดูแลที่ได้รับสิทธิ์เท่านั้น</div>
+      <a class="staff-back-link" href="/">← กลับหน้าร้าน</a>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  const input = document.getElementById('staff-password');
+  const button = document.getElementById('staff-password-toggle');
+  if (!input || !button) return;
+  button.addEventListener('click', function () {
+    const visible = input.type === 'password';
+    input.type = visible ? 'text' : 'password';
+    button.textContent = visible ? 'ซ่อน' : 'แสดง';
+    button.setAttribute('aria-pressed', String(visible));
+    button.setAttribute('aria-label', visible ? 'ซ่อนรหัสผ่าน' : 'แสดงรหัสผ่าน');
+  });
+})();
+</script>
